@@ -51,7 +51,7 @@ Resources:
           #!/bin/bash
           dnf update -y
           dnf install nginx -y
-          echo "<html><body style='background-color:lightblue;'><h1>Mohamed Ali ONE1!</h1></body></html>" > /usr/share/nginx/html/index.html
+          echo "<html><body style='background-color:lightblue;'><h1>Mohamed Ali ONE11!</h1></body></html>" > /usr/share/nginx/html/index.html
           systemctl start nginx
           systemctl enable nginx
 
