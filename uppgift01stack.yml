@@ -1,0 +1,135 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: This is a demo stack template with personalized EC2 instances and Load Balancer
+
+Parameters:
+  LatestAmiId:
+    Description: The latest Amazon Linux AMI ID
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64'
+
+Resources:
+  # Security Group for EC2 instances
+  VMSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow SSH and HTTP access to client hosts
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  # Security Group for Load Balancer
+  LoadBalancerSecGrp:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow HTTP to the Load Balancer
+      VpcId: vpc-00059ddee1c6852c0  # Replace with your correct VPC ID
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  # First EC2 instance (VM1) with personalized message
+  VM1:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !Ref LatestAmiId
+      KeyName: keyforuppgift1
+      SecurityGroupIds:
+        - !GetAtt VMSecurityGroup.GroupId
+      SubnetId: subnet-0f9eec39fb73d5c6a  # Use this subnet in eu-west-1a
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+          dnf install nginx -y
+          echo "<html><body style='background-color:lightblue;'><h1>Mohamed Ali ONE!</h1></body></html>" > /usr/share/nginx/html/index.html
+          systemctl start nginx
+          systemctl enable nginx
+
+  # Second EC2 instance (VM2) with personalized message
+  VM2:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !Ref LatestAmiId
+      KeyName: keyforuppgift1
+      SecurityGroupIds:
+        - !GetAtt VMSecurityGroup.GroupId
+      SubnetId: subnet-0b1e143abdfad6f07  # Use this subnet in eu-west-1b
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+          dnf install nginx -y
+          echo "<html><body style='background-color:lightblue;'><h1>Mohamed Ali TWO!</h1></body></html>" > /usr/share/nginx/html/index.html
+          systemctl start nginx
+          systemctl enable nginx
+
+  # Load Balancer
+  LoadBalancer:
+    Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
+    Properties:
+      Name: my-application-load-balancer
+      Subnets:
+        - subnet-0f9eec39fb73d5c6a  # eu-west-1a
+        - subnet-0b1e143abdfad6f07  # eu-west-1b
+      SecurityGroups:
+        - !Ref LoadBalancerSecGrp
+      Scheme: internet-facing  # Make it internet-facing
+
+  # Target Group
+  TargetGroup:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties:
+      VpcId: vpc-00059ddee1c6852c0  # Correct VPC ID
+      Protocol: HTTP
+      Port: 80
+      TargetType: instance
+      HealthCheckProtocol: HTTP
+      HealthCheckPort: '80'
+      HealthCheckPath: /
+      Matcher:
+        HttpCode: '200'
+      Targets:
+        - Id: !Ref VM1
+        - Id: !Ref VM2
+
+  # Listener for Load Balancer
+  Listener:
+    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Properties:
+      LoadBalancerArn: !Ref LoadBalancer
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroup
+
+Outputs:
+  LoadBalancerDNS:
+    Description: DNS name of the load balancer
+    Value: !GetAtt LoadBalancer.DNSName
+
+  VM1PublicDNS:
+    Description: The Public DNS of VM1
+    Value: !GetAtt VM1.PublicDnsName
+
+  VM2PublicDNS:
+    Description: The Public DNS of VM2
+    Value: !GetAtt VM2.PublicDnsName
+
+
+
+
+
+
+
