@@ -1,0 +1,73 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: This is a demo stack template
+
+Parameters:
+  LatestAmiId:
+    Description: The latest Amazon Linux AMI ID
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64'
+
+Resources:
+  # Security Group for VM1 and VM2
+  VMSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow SSH and HTTP access to client hosts
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  # First EC2 (VM1)
+  VM1: 
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !Ref LatestAmiId
+      KeyName: keyforuppgift1
+      SecurityGroupIds:
+        - !GetAtt VMSecurityGroup.GroupId
+      SubnetId: subnet-0f9eec39fb73d5c6a  # Use this subnet in eu-west-1a
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+          dnf install nginx -y
+          echo "<html><body style='background-color:lightblue;'><h1>Mohamed Ali ONE!</h1></body></html>" > /usr/share/nginx/html/index.html
+          systemctl start nginx
+          systemctl enable nginx
+  
+  # Second EC2 (VM2)
+  VM2: 
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !Ref LatestAmiId
+      KeyName: keyforuppgift1
+      SecurityGroupIds:
+        - !GetAtt VMSecurityGroup.GroupId
+      SubnetId: subnet-0b1e143abdfad6f07  # Use this subnet in eu-west-1b
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+          dnf install nginx -y
+          echo "<html><body style='background-color:lightblue;'><h1>Mohamed Ali TWO!</h1></body></html>" > /usr/share/nginx/html/index.html
+          systemctl start nginx
+          systemctl enable nginx
+
+
+
+
+ 
+
+
+
+            

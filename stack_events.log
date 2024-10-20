@@ -1,0 +1,270 @@
+{
+    "StackEvents": [
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "a9509cf0-8e5d-11ef-a1fc-02e934ccc0f1",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T21:03:59.525000+00:00",
+            "ResourceStatus": "UPDATE_ROLLBACK_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "LoadBalancerSecGrp-5168c658-8094-4f11-a5c2-9f61f3c67eff",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "LoadBalancerSecGrp",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::EC2::SecurityGroup",
+            "Timestamp": "2024-10-19T21:03:59.372000+00:00",
+            "ResourceStatus": "DELETE_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "TargetGroup-6138efc2-2de9-4658-91bf-180c03f31c77",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "TargetGroup",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "Timestamp": "2024-10-19T21:03:57.416000+00:00",
+            "ResourceStatus": "DELETE_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "4f7dec50-8e5d-11ef-b0c4-02e7e3c807d9",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T21:01:28.843000+00:00",
+            "ResourceStatus": "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "4e1c6080-8e5d-11ef-ad4a-0aac9c84452d",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T21:01:26.519000+00:00",
+            "ResourceStatus": "UPDATE_ROLLBACK_IN_PROGRESS",
+            "ResourceStatusReason": "The following resource(s) failed to create: [LoadBalancerSecGrp, TargetGroup]. "
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "LoadBalancerSecGrp-CREATE_FAILED-2024-10-19T21:01:26.203Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "LoadBalancerSecGrp",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::EC2::SecurityGroup",
+            "Timestamp": "2024-10-19T21:01:26.203000+00:00",
+            "ResourceStatus": "CREATE_FAILED",
+            "ResourceStatusReason": "Resource handler returned message: \"The vpc ID 'vpc-0f35de82ddfeabf42' does not exist (Service: Ec2, Status Code: 400, Request ID: d705d4cc-efa0-4349-a312-d3fae1f1c4f1)\" (RequestToken: a97447fa-c6ec-77d8-769e-d2c7af827b7e, HandlerErrorCode: InvalidRequest)",
+            "ResourceProperties": "{\"GroupDescription\":\"Allow HTTP to the Load Balancer\",\"VpcId\":\"vpc-0f35de82ddfeabf42\",\"SecurityGroupIngress\":[{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"80\",\"ToPort\":\"80\",\"IpProtocol\":\"tcp\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "TargetGroup-CREATE_FAILED-2024-10-19T21:01:25.167Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "TargetGroup",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "Timestamp": "2024-10-19T21:01:25.167000+00:00",
+            "ResourceStatus": "CREATE_FAILED",
+            "ResourceStatusReason": "Resource handler returned message: \"The VPC ID 'vpc-0f35de82ddfeabf42' is not found (Service: ElasticLoadBalancingV2, Status Code: 400, Request ID: 5ac2c377-7856-4e9c-8e4f-5ee1abd06a71)\" (RequestToken: dcb0fc49-71fc-6612-14ec-0b79d59c952e, HandlerErrorCode: GeneralServiceException)",
+            "ResourceProperties": "{\"VpcId\":\"vpc-0f35de82ddfeabf42\",\"Matcher\":{\"HttpCode\":\"200\"},\"Port\":\"80\",\"HealthCheckPath\":\"/\",\"TargetType\":\"instance\",\"HealthCheckProtocol\":\"HTTP\",\"HealthCheckPort\":\"80\",\"Protocol\":\"HTTP\"}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "TargetGroup-CREATE_IN_PROGRESS-2024-10-19T21:01:24.186Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "TargetGroup",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "Timestamp": "2024-10-19T21:01:24.186000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceProperties": "{\"VpcId\":\"vpc-0f35de82ddfeabf42\",\"Matcher\":{\"HttpCode\":\"200\"},\"Port\":\"80\",\"HealthCheckPath\":\"/\",\"TargetType\":\"instance\",\"HealthCheckProtocol\":\"HTTP\",\"HealthCheckPort\":\"80\",\"Protocol\":\"HTTP\"}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "LoadBalancerSecGrp-CREATE_IN_PROGRESS-2024-10-19T21:01:24.139Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "LoadBalancerSecGrp",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::EC2::SecurityGroup",
+            "Timestamp": "2024-10-19T21:01:24.139000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceProperties": "{\"GroupDescription\":\"Allow HTTP to the Load Balancer\",\"VpcId\":\"vpc-0f35de82ddfeabf42\",\"SecurityGroupIngress\":[{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"80\",\"ToPort\":\"80\",\"IpProtocol\":\"tcp\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "4b317590-8e5d-11ef-a50c-024427175a29",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T21:01:21.628000+00:00",
+            "ResourceStatus": "UPDATE_IN_PROGRESS",
+            "ResourceStatusReason": "User Initiated"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "71154e70-8e59-11ef-8145-06a7781f05f9",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T20:33:47.212000+00:00",
+            "ResourceStatus": "CREATE_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "AutoScalingGroup-CREATE_COMPLETE-2024-10-19T20:33:46.390Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "AutoScalingGroup",
+            "PhysicalResourceId": "uppgift01stack-AutoScalingGroup-DN1zRz1UEF2P",
+            "ResourceType": "AWS::AutoScaling::AutoScalingGroup",
+            "Timestamp": "2024-10-19T20:33:46.390000+00:00",
+            "ResourceStatus": "CREATE_COMPLETE",
+            "ResourceProperties": "{\"MinSize\":\"1\",\"LaunchTemplate\":{\"Version\":\"1\",\"LaunchTemplateId\":\"lt-0a67fcb2bfc3afeb0\"},\"DesiredCapacity\":\"2\",\"VPCZoneIdentifier\":[\"subnet-0f9eec39fb73d5c6a\",\"subnet-0b1e143abdfad6f07\"],\"MaxSize\":\"3\",\"Tags\":[{\"Value\":\"DemoASGInstance\",\"Key\":\"Name\",\"PropagateAtLaunch\":\"true\"},{\"Value\":\"Development\",\"Key\":\"Environment\",\"PropagateAtLaunch\":\"true\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "67c67e70-8e59-11ef-be28-06b9d7d2451b",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T20:33:31.607000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceStatusReason": "Eventual consistency check initiated",
+            "DetailedStatus": "CONFIGURATION_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "AutoScalingGroup-e1806549-6786-48fa-93ce-f72db5ffc94f",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "AutoScalingGroup",
+            "PhysicalResourceId": "uppgift01stack-AutoScalingGroup-DN1zRz1UEF2P",
+            "ResourceType": "AWS::AutoScaling::AutoScalingGroup",
+            "Timestamp": "2024-10-19T20:33:31.571000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceStatusReason": "Eventual consistency check initiated",
+            "DetailedStatus": "CONFIGURATION_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "AutoScalingGroup-CREATE_IN_PROGRESS-2024-10-19T20:33:22.453Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "AutoScalingGroup",
+            "PhysicalResourceId": "uppgift01stack-AutoScalingGroup-DN1zRz1UEF2P",
+            "ResourceType": "AWS::AutoScaling::AutoScalingGroup",
+            "Timestamp": "2024-10-19T20:33:22.453000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceStatusReason": "Resource creation Initiated",
+            "ResourceProperties": "{\"MinSize\":\"1\",\"LaunchTemplate\":{\"Version\":\"1\",\"LaunchTemplateId\":\"lt-0a67fcb2bfc3afeb0\"},\"DesiredCapacity\":\"2\",\"VPCZoneIdentifier\":[\"subnet-0f9eec39fb73d5c6a\",\"subnet-0b1e143abdfad6f07\"],\"MaxSize\":\"3\",\"Tags\":[{\"Value\":\"DemoASGInstance\",\"Key\":\"Name\",\"PropagateAtLaunch\":\"true\"},{\"Value\":\"Development\",\"Key\":\"Environment\",\"PropagateAtLaunch\":\"true\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "AutoScalingGroup-CREATE_IN_PROGRESS-2024-10-19T20:33:21.367Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "AutoScalingGroup",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::AutoScaling::AutoScalingGroup",
+            "Timestamp": "2024-10-19T20:33:21.367000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceProperties": "{\"MinSize\":\"1\",\"LaunchTemplate\":{\"Version\":\"1\",\"LaunchTemplateId\":\"lt-0a67fcb2bfc3afeb0\"},\"DesiredCapacity\":\"2\",\"VPCZoneIdentifier\":[\"subnet-0f9eec39fb73d5c6a\",\"subnet-0b1e143abdfad6f07\"],\"MaxSize\":\"3\",\"Tags\":[{\"Value\":\"DemoASGInstance\",\"Key\":\"Name\",\"PropagateAtLaunch\":\"true\"},{\"Value\":\"Development\",\"Key\":\"Environment\",\"PropagateAtLaunch\":\"true\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "LaunchTemplate-CREATE_COMPLETE-2024-10-19T20:33:20.699Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "LaunchTemplate",
+            "PhysicalResourceId": "lt-0a67fcb2bfc3afeb0",
+            "ResourceType": "AWS::EC2::LaunchTemplate",
+            "Timestamp": "2024-10-19T20:33:20.699000+00:00",
+            "ResourceStatus": "CREATE_COMPLETE",
+            "ResourceProperties": "{\"LaunchTemplateName\":\"uppgift01stack-LaunchTemplate\",\"LaunchTemplateData\":{\"KeyName\":\"keyforuppgift1\",\"TagSpecifications\":[{\"ResourceType\":\"instance\",\"Tags\":[{\"Value\":\"DemoAutoScalingInstance\",\"Key\":\"Name\"},{\"Value\":\"Development\",\"Key\":\"Environment\"}]}],\"UserData\":\"IyEvYmluL2Jhc2gKZG5mIHVwZGF0ZSAteQpkbmYgaW5zdGFsbCBuZ2lueCAteQplY2hvICI8aDE+V2VsY29tZSB0byBNb2hhbWVkIEFsaSdzIFdlYiBTZXJ2ZXI8L2gxPiIgPiAvdXNyL3NoYXJlL25naW54L2h0bWwvaW5kZXguaHRtbApzeXN0ZW1jdGwgc3RhcnQgbmdpbngKc3lzdGVtY3RsIGVuYWJsZSBuZ2lueAo=\",\"ImageId\":\"ami-00385a401487aefa4\",\"InstanceType\":\"t2.micro\",\"SecurityGroupIds\":[\"sg-0d402f61f595ed1c4\"]}}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "LaunchTemplate-CREATE_IN_PROGRESS-2024-10-19T20:33:20.383Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "LaunchTemplate",
+            "PhysicalResourceId": "lt-0a67fcb2bfc3afeb0",
+            "ResourceType": "AWS::EC2::LaunchTemplate",
+            "Timestamp": "2024-10-19T20:33:20.383000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceStatusReason": "Resource creation Initiated",
+            "ResourceProperties": "{\"LaunchTemplateName\":\"uppgift01stack-LaunchTemplate\",\"LaunchTemplateData\":{\"KeyName\":\"keyforuppgift1\",\"TagSpecifications\":[{\"ResourceType\":\"instance\",\"Tags\":[{\"Value\":\"DemoAutoScalingInstance\",\"Key\":\"Name\"},{\"Value\":\"Development\",\"Key\":\"Environment\"}]}],\"UserData\":\"IyEvYmluL2Jhc2gKZG5mIHVwZGF0ZSAteQpkbmYgaW5zdGFsbCBuZ2lueCAteQplY2hvICI8aDE+V2VsY29tZSB0byBNb2hhbWVkIEFsaSdzIFdlYiBTZXJ2ZXI8L2gxPiIgPiAvdXNyL3NoYXJlL25naW54L2h0bWwvaW5kZXguaHRtbApzeXN0ZW1jdGwgc3RhcnQgbmdpbngKc3lzdGVtY3RsIGVuYWJsZSBuZ2lueAo=\",\"ImageId\":\"ami-00385a401487aefa4\",\"InstanceType\":\"t2.micro\",\"SecurityGroupIds\":[\"sg-0d402f61f595ed1c4\"]}}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "LaunchTemplate-CREATE_IN_PROGRESS-2024-10-19T20:33:19.293Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "LaunchTemplate",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::EC2::LaunchTemplate",
+            "Timestamp": "2024-10-19T20:33:19.293000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceProperties": "{\"LaunchTemplateName\":\"uppgift01stack-LaunchTemplate\",\"LaunchTemplateData\":{\"KeyName\":\"keyforuppgift1\",\"TagSpecifications\":[{\"ResourceType\":\"instance\",\"Tags\":[{\"Value\":\"DemoAutoScalingInstance\",\"Key\":\"Name\"},{\"Value\":\"Development\",\"Key\":\"Environment\"}]}],\"UserData\":\"IyEvYmluL2Jhc2gKZG5mIHVwZGF0ZSAteQpkbmYgaW5zdGFsbCBuZ2lueCAteQplY2hvICI8aDE+V2VsY29tZSB0byBNb2hhbWVkIEFsaSdzIFdlYiBTZXJ2ZXI8L2gxPiIgPiAvdXNyL3NoYXJlL25naW54L2h0bWwvaW5kZXguaHRtbApzeXN0ZW1jdGwgc3RhcnQgbmdpbngKc3lzdGVtY3RsIGVuYWJsZSBuZ2lueAo=\",\"ImageId\":\"ami-00385a401487aefa4\",\"InstanceType\":\"t2.micro\",\"SecurityGroupIds\":[\"sg-0d402f61f595ed1c4\"]}}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "VMSecurityGroup-CREATE_COMPLETE-2024-10-19T20:33:18.544Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "VMSecurityGroup",
+            "PhysicalResourceId": "uppgift01stack-VMSecurityGroup-pMyG5DyDYlRC",
+            "ResourceType": "AWS::EC2::SecurityGroup",
+            "Timestamp": "2024-10-19T20:33:18.544000+00:00",
+            "ResourceStatus": "CREATE_COMPLETE",
+            "ResourceProperties": "{\"GroupDescription\":\"Allow SSH and HTTP access to client hosts\",\"SecurityGroupIngress\":[{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"22\",\"ToPort\":\"22\",\"IpProtocol\":\"tcp\"},{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"80\",\"ToPort\":\"80\",\"IpProtocol\":\"tcp\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "VMSecurityGroup-CREATE_IN_PROGRESS-2024-10-19T20:33:18.275Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "VMSecurityGroup",
+            "PhysicalResourceId": "uppgift01stack-VMSecurityGroup-pMyG5DyDYlRC",
+            "ResourceType": "AWS::EC2::SecurityGroup",
+            "Timestamp": "2024-10-19T20:33:18.275000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceStatusReason": "Resource creation Initiated",
+            "ResourceProperties": "{\"GroupDescription\":\"Allow SSH and HTTP access to client hosts\",\"SecurityGroupIngress\":[{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"22\",\"ToPort\":\"22\",\"IpProtocol\":\"tcp\"},{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"80\",\"ToPort\":\"80\",\"IpProtocol\":\"tcp\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "VMSecurityGroup-CREATE_IN_PROGRESS-2024-10-19T20:33:15.472Z",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "VMSecurityGroup",
+            "PhysicalResourceId": "",
+            "ResourceType": "AWS::EC2::SecurityGroup",
+            "Timestamp": "2024-10-19T20:33:15.472000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceProperties": "{\"GroupDescription\":\"Allow SSH and HTTP access to client hosts\",\"SecurityGroupIngress\":[{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"22\",\"ToPort\":\"22\",\"IpProtocol\":\"tcp\"},{\"CidrIp\":\"0.0.0.0/0\",\"FromPort\":\"80\",\"ToPort\":\"80\",\"IpProtocol\":\"tcp\"}]}"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "5cc4f560-8e59-11ef-9818-0a821b15b1f5",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T20:33:13.128000+00:00",
+            "ResourceStatus": "CREATE_IN_PROGRESS",
+            "ResourceStatusReason": "User Initiated"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "EventId": "5949ff70-8e59-11ef-95bb-0292b566a455",
+            "StackName": "uppgift01stack",
+            "LogicalResourceId": "uppgift01stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:eu-west-1:222634393946:stack/uppgift01stack/594a74a0-8e59-11ef-95bb-0292b566a455",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2024-10-19T20:33:07.421000+00:00",
+            "ResourceStatus": "REVIEW_IN_PROGRESS",
+            "ResourceStatusReason": "User Initiated"
+        }
+    ]
+}
