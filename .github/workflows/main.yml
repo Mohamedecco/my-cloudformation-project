@@ -23,6 +23,6 @@ jobs:
       - name: Deploy CloudFormation stack
         run: |
           aws cloudformation deploy \
-            --template-file one-click-solution.yml \
-            --stack-name one-click-solution \
+            --template-file uppgift01stack.yml \
+            --stack-name uppgift01stack \
             --capabilities CAPABILITY_NAMED_IAM
