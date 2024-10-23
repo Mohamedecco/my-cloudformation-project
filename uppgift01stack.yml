@@ -18,7 +18,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: 0.0.0.0/0
+          CidrIp: your-trusted-ip-range  # Replace with your trusted IP range
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
@@ -29,7 +29,7 @@ Resources:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       GroupDescription: Allow HTTP to the Load Balancer
-      VpcId: vpc-00059ddee1c6852c0  # Replace with your correct VPC ID
+      VpcId: vpc-id-placeholder  # Replace with your correct VPC ID
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 80
@@ -42,10 +42,10 @@ Resources:
     Properties:
       InstanceType: t2.micro
       ImageId: !Ref LatestAmiId
-      KeyName: keyforuppgift1
+      KeyName: key-name-placeholder  # Replace with your key name
       SecurityGroupIds:
         - !GetAtt VMSecurityGroup.GroupId
-      SubnetId: subnet-0f9eec39fb73d5c6a  # Use this subnet in eu-west-1a
+      SubnetId: subnet-id-placeholder  # Replace with your subnet
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
@@ -61,10 +61,10 @@ Resources:
     Properties:
       InstanceType: t2.micro
       ImageId: !Ref LatestAmiId
-      KeyName: keyforuppgift1
+      KeyName: key-name-placeholder  # Replace with your key name
       SecurityGroupIds:
         - !GetAtt VMSecurityGroup.GroupId
-      SubnetId: subnet-0b1e143abdfad6f07  # Use this subnet in eu-west-1b
+      SubnetId: subnet-id-placeholder  # Replace with your subnet
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
@@ -80,8 +80,8 @@ Resources:
     Properties:
       Name: my-application-load-balancer
       Subnets:
-        - subnet-0f9eec39fb73d5c6a  # eu-west-1a
-        - subnet-0b1e143abdfad6f07  # eu-west-1b
+        - subnet-id-placeholder  # eu-west-1a
+        - subnet-id-placeholder  # eu-west-1b
       SecurityGroups:
         - !Ref LoadBalancerSecGrp
       Scheme: internet-facing  # Make it internet-facing
@@ -90,7 +90,7 @@ Resources:
   TargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
     Properties:
-      VpcId: vpc-00059ddee1c6852c0  # Correct VPC ID
+      VpcId: vpc-id-placeholder  # Correct VPC ID
       Protocol: HTTP
       Port: 80
       TargetType: instance
@@ -126,6 +126,7 @@ Outputs:
   VM2PublicDNS:
     Description: The Public DNS of VM2
     Value: !GetAtt VM2.PublicDnsName
+
 
 
 
